@@ -76,27 +76,27 @@ run_analysis <- function() {
   
   ##  Create a dataframe with only mean and std deviation measurements by subject
   ##  by activity
+  ##    Find the position (column #) of all variables containing the word "mean."
+  ##    Find the position (column #) of all variables containing the word "std"
+  ##    Sort the positions in ascending order
+  ##    Extract the data
   meanVars <- grep("mean.", colnames(allDataSet),fixed=TRUE)
   stdVars <- grep("std", colnames(allDataSet))
   allVarsforext <- sort(c(meanVars,stdVars))
-  ##Keepcols <- c("subject","activityNum","activityName",
-  ##              "tBodyAcc.mean...X","tBodyAcc.mean...Y","tBodyAcc.mean...Z",
-  ##              "tBodyAcc.std...X","tBodyAcc.std...Y","tBodyAcc.std...Z",
-  ##              "tGravityAcc.mean...X","tGravityAcc.mean...Y","tGravityAcc.mean...Z",
-  ##              "tGravityAcc.std...X","tGravityAcc.std...Y","tGravityAcc.std...Z",
-  ##              "tBodyAccJerk.mean...X","tBodyAccJerk.mean...Y","tBodyAccJerk.mean...Z",
-  ##              "tBodyAccJerk.std...X","tBodyAccJerk.std...Y","tBodyAccJerk.std...Z")
+  
   MeansandStds <- allDataSet[,c(1:3,allVarsforext)]
+  
   ##  compute the means for all the measurement data columns
   aggdata <- aggregate(MeansandStds[,-c(1:3)],MeansandStds[,1:2],mean)
-  ##  aggregate drops out the activityName column since it is not used so it needs
-  ##  to be added back in - maybe there is a way to keep the column using aggregate
-  ##  but I have not figured out how
-  ##  split the aggregate data into two parts
-  ##  create a column containing the activitiy Name and append it to the first part
-  ##  bring all the data together in one dataframe
+  ##  aggregate drops out the activityName column since it is not used in the
+  ##  aggregations so it needs to be added back in - maybe there is a way to keep
+  ##  the column using aggregate but I have not figured out how so:
+  ##    split the aggregate data into two parts and the later
+  ##    create a column containing the activitiy Name and append it to the first part
+  ##    bring all the data back together in one dataframe
   finaldata1 <- aggdata[,1:2]
   finaldata2 <- aggdata[,-c(1:2)]
+  
   ##  place descriptive names on final data variables
   newColnames <- colnames(finaldata2)
   newColnames <- sub("...",".",newColnames,fixed=TRUE)
@@ -106,6 +106,7 @@ run_analysis <- function() {
                          activityName=activityLabels[match(finaldata1$activityNum,
                                       activityLabels$activityNum),]$activityName)
   finalsumdataset <- cbind(finaldata1,finaldata2)
+  
   ##-------------  ***Completes step 2 of Project*** ---------------------------
   
   
