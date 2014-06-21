@@ -7,7 +7,7 @@ Read Accelerometer Data and Output a Summary Dataset
 
 A specific function which reads specific data files and outputs a summary for specific variables.
 
-The specific data files are from a study which captured Samsung Galaxy S smartphone accelerometer data from 30 volunteers between the age of 19 and 48.  The data was captured while the volunteers performed 6 different activities.  The data observations are contained in two separate data files (test and train).  This function assembles the data files, extracts only the measurements for mean and standard deviations for each observation then summarizes the data and produces a file which contains the average of each mean and standard deviation variable by activity by volunteer (i.e. subject).
+The specific data files are from a study by Smartlab which captured Samsung Galaxy S smartphone accelerometer data from 30 volunteers between the ages of 19 and 48.  The data was captured while the volunteers performed 6 different activities.  The data observations are contained in two separate data files (test and train).  This function assembles the data files, extracts all measurements for mean and standard deviation for each observation then summarizes the data and produces a file which contains the average of each mean and standard deviation variable by activity by volunteer (i.e. subject).
 
 ### Usage
 
@@ -38,12 +38,12 @@ test/subject.txt | the subject number for each row of data in test/x_test.txt
 
 ### Output
 
-A test file: __*avg.all.vars.by.subject.and.activity.txt*__ that contains the means of all acceleration and standard deviation variables by activity by subject.
+A text file: __*avg.all.vars.by.subject.and.activity.txt*__ that contains the averages of all mean and standard deviation variables by activity by subject.
 
 
 ### References
 
 Github scsosa/Getting_and_Cleaning_Data_Project: CodeBook.md
 
-SamsungGalaxy S Smartphone Study: 
+Smartlab SamsungGalaxy S Smartphone Study: 
 *http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones* 
