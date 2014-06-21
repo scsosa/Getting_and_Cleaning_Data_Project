@@ -80,7 +80,7 @@ run_analysis <- function() {
   ##    Find the position (column #) of all variables containing the word "std"
   ##    Sort the positions in ascending order
   ##    Extract the data
-  meanVars <- grep("mean.", colnames(allDataSet),fixed=TRUE)
+  meanVars <- grep("[Mm]ean", colnames(allDataSet))
   stdVars <- grep("std", colnames(allDataSet))
   allVarsforext <- sort(c(meanVars,stdVars))
   
@@ -98,8 +98,13 @@ run_analysis <- function() {
   finaldata2 <- aggdata[,-c(1:2)]
   
   ##  place descriptive names on final data variables
+  ##      remove extra periods ...
+  ##      add avg to the beginning of the variable names to reflect the 
+  ##      content of the data
   newColnames <- colnames(finaldata2)
   newColnames <- sub("...",".",newColnames,fixed=TRUE)
+  newColnames <- sub("..","",newColnames,fixed=TRUE)
+  newColnames <- sub("\\.$","",newColnames)
   newColnames <- paste("avg", newColnames,sep=".")
   colnames(finaldata2) <- newColnames
   finaldata1 <- transform(finaldata1,
