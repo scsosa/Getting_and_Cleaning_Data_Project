@@ -46,6 +46,8 @@ Variables reflect the transformations and combinations of the raw signals as ind
 * Magnitude (Mag): a calculation using the Euclidean norm.
 * Mean (mean): a statistical mean value calculation of the raw signals.
 * Standard Deviation (std): a statistical standard deviation calculation of the raw signals.
+* Mean Frequency (meanFreq): a Weighted average of the frequency components.
+* Angle (angle): average of the signals measuring the angle between two vectors.
 * X indicates a reading for the X-axis.
 * Y indicates a reading for the y-axis.
 * Z indicates a reading for the z-axis.
@@ -89,42 +91,62 @@ The function produces an output file, __*avg.all.vars.by.subject.and.activity.tx
 31 | avg.tBodyGyroJerk.std.X | avg of time body gyroscope jerk standard deviation for the X axis | numeric
 32 | avg.tBodyGyroJerk.std.Y | avg of time body gyroscope jerk standard deviation for the Y axis | numeric
 33 | avg.tBodyGyroJerk.std.Z | avg of time body gyroscope jerk standard deviation for the Z axis | numeric
-34 | avg.tBodyAccMag.mean.. | avg of time body acceleration magnitude mean | numeric
-35 | avg.tBodyAccMag.std.. | avg of time body acceleration magnitude standard deviation | numeric
-36 | avg.tGravityAccMag.mean.. | avg of time gravity acceleration magnitude mean | numeric
-37 | avg.tGravityAccMag.std.. | avg of time gravity acceleration magnitude standard deviation | numeric
-38 | avg.tBodyAccJerkMag.mean.. | avg of time body acceleration jerk magnitude mean | numeric
-39 | avg.tBodyAccJerkMag.std.. | avg of time body acceleration jerk magnitude standard deviation | numeric
-40 | avg.tBodyGyroMag.mean.. | avg of time body gyroscope magnitude mean | numeric
-41 | avg.tBodyGyroMag.std.. | avg of time body gyroscope magnitude standard deviation | numeric
-42 | avg.tBodyGyroJerkMag.mean.. | avg of time body gyroscope jerk magnitude mean | numeric
-43 | avg.tBodyGyroJerkMag.std.. | avg of time body gyroscope jerk magnitude standard deviation | numeric
+34 | avg.tBodyAccMag.mean | avg of time body acceleration magnitude mean | numeric
+35 | avg.tBodyAccMag.std | avg of time body acceleration magnitude standard deviation | numeric
+36 | avg.tGravityAccMag.mean | avg of time gravity acceleration magnitude mean | numeric
+37 | avg.tGravityAccMag.std | avg of time gravity acceleration magnitude standard deviation | numeric
+38 | avg.tBodyAccJerkMag.mean | avg of time body acceleration jerk magnitude mean | numeric
+39 | avg.tBodyAccJerkMag.std | avg of time body acceleration jerk magnitude standard deviation | numeric
+40 | avg.tBodyGyroMag.mean | avg of time body gyroscope magnitude mean | numeric
+41 | avg.tBodyGyroMag.std | avg of time body gyroscope magnitude standard deviation | numeric
+42 | avg.tBodyGyroJerkMag.mean | avg of time body gyroscope jerk magnitude mean | numeric
+43 | avg.tBodyGyroJerkMag.std | avg of time body gyroscope jerk magnitude standard deviation | numeric
 44 | avg.fBodyAcc.mean.X | avg of frequency body acceleration mean for the X axis | numeric
 45 | avg.fBodyAcc.mean.Y | avg of frequency body acceleration mean for the Y axis | numeric
 46 | avg.fBodyAcc.mean.Z | avg of frequency body acceleration mean for the Z axis | numeric
 47 | avg.fBodyAcc.std.X | avg of frequency body acceleration standard deviation for the X axis | numeric
 48 | avg.fBodyAcc.std.Y | avg of frequency body acceleration standard deviation for the Y axis | numeric
 49 | avg.fBodyAcc.std.Z | avg of frequency body acceleration standard deviation for the Z axis | numeric
-50 | avg.fBodyAccJerk.mean.X | avg of frequency body acceleration jerk mean for the X axis | numeric
-51 | avg.fBodyAccJerk.mean.Y | avg of frequency body acceleration jerk mean for the Y axis | numeric
-52 | avg.fBodyAccJerk.mean.Z | avg of frequency body acceleration jerk mean for the Z axis | numeric
-53 | avg.fBodyAccJerk.std.X | avg of frequency body acceleration jerk standard deviation for the X axis | numeric
-54 | avg.fBodyAccJerk.std.Y | avg of frequency body acceleration jerk standard deviation for the Y axis | numeric
-55 | avg.fBodyAccJerk.std.Z  | avg of frequency body acceleration jerk standard deviation for the Z axis | numeric
-56 | avg.fBodyGyro.mean.X  | avg of frequency body gyroscope mean for the X axis | numeric
-57 | avg.fBodyGyro.mean.Y | avg of frequency body gyroscope mean for the Y axis | numeric
-58 | avg.fBodyGyro.mean.Z | avg of frequency body gyroscope mean for the Z axis | numeric
-59 | avg.fBodyGyro.std.X | avg of frequency body gyroscope standard deviation for the X axis | numeric
-60 | avg.fBodyGyro.std.Y | avg of frequency body gyroscope standard deviation for the Y axis | numeric
-61 | avg.fBodyGyro.std.Z | avg of frequency body gyroscope standard deviation for the Z axis | numeric
-62 | avg.fBodyAccMag.mean.. | avg of frequency body accelerator magnitude mean | numeric
-63 | avg.fBodyAccMag.std.. | avg of frequency body accelerator magnitude standard deviation | numeric
-64 | avg.fBodyBodyAccJerkMag.mean.. | avg of frequency body accelerator jerk magnitude mean | numeric
-65 | avg.fBodyBodyAccJerkMag.std..| avg of frequency body accelerator jerk magnitude standard deviation | numeric
-66 | avg.fBodyBodyGyroMag.mean.. | avg of frequency body gyroscope magnitude mean | numeric
-67 | avg.fBodyBodyGyroMag.std..| avg of frequency body gyroscope magnitude standard deviation | numeric
-68 | avg.fBodyBodyGyroJerkMag.mean.. | avg of frequency body gyroscope jerk magnitude mean | numeric
-69 | avg.fBodyBodyGyroJerkMag.std..| avg of frequency body gyroscope jerk magnitude standard deviation | numeric
+50 | avg.fBodyAcc.meanFreq.X | avg of frequency body acceleration mean frequency for X | numeric
+51 | avg.fBodyAcc.meanFreq.Y | avg of frequency body acceleration mean frequency for Y | numeric
+52 | avg.fBodyAcc.meanFreq.Z | avg of frequency body acceleration mean frequency for Z | numeric
+53 | avg.fBodyAccJerk.mean.X | avg of frequency body acceleration jerk mean for the X axis | numeric
+54 | avg.fBodyAccJerk.mean.Y | avg of frequency body acceleration jerk mean for the Y axis | numeric
+55 | avg.fBodyAccJerk.mean.Z | avg of frequency body acceleration jerk mean for the Z axis | numeric
+56 | avg.fBodyAccJerk.std.X | avg of frequency body acceleration jerk standard deviation for the X axis | numeric
+57 | avg.fBodyAccJerk.std.Y | avg of frequency body acceleration jerk standard deviation for the Y axis | numeric
+58 | avg.fBodyAccJerk.std.Z  | avg of frequency body acceleration jerk standard deviation for the Z axis | numeric
+59 | avg.fBodyAccJerk.meanFreq.X | avg of frequency body acceleration jerk mean frequency for X | numeric
+60 | avg.fBodyAccJerk.meanFreq.Y | avg of frequency body acceleration jerk mean frequency for Y | numeric
+61 | avg.fBodyAccJerk.meanFreq.Z | avg of frequency body acceleration jerk mean frequency for Z | numeric
+62 | avg.fBodyGyro.mean.X  | avg of frequency body gyroscope mean for the X axis | numeric
+63 | avg.fBodyGyro.mean.Y | avg of frequency body gyroscope mean for the Y axis | numeric
+64 | avg.fBodyGyro.mean.Z | avg of frequency body gyroscope mean for the Z axis | numeric
+65 | avg.fBodyGyro.std.X | avg of frequency body gyroscope standard deviation for the X axis | numeric
+66 | avg.fBodyGyro.std.Y | avg of frequency body gyroscope standard deviation for the Y axis | numeric
+67 | avg.fBodyGyro.std.Z | avg of frequency body gyroscope standard deviation for the Z axis | numeric
+68 | avg.fBodyGyro.meanFreq.X | avg of frequency body gyroscope mean frequency for X | numeric
+69 | avg.fBodyGyro.meanFreq.Y | avg of frequency body gyroscope mean frequency for Y | numeric
+70 | avg.fBodyGyro.meanFreq.Z | avg of frequency body gyroscope mean frequency for Z | numeric
+71 | avg.fBodyAccMag.mean | avg of frequency body accelerator magnitude mean | numeric
+72 | avg.fBodyAccMag.std | avg of frequency body accelerator magnitude standard deviation | numeric
+73 | avg.fBodyAccMag.meanFreq | avg of frequency body accelerator magnitude mean frequency
+74 | avg.fBodyBodyAccJerkMag.mean | avg of frequency body accelerator jerk magnitude mean | numeric
+75 | avg.fBodyBodyAccJerkMag.std | avg of frequency body accelerator jerk magnitude standard deviation | numeric
+76 | avg.fBodyBodyAccJerkMag.meanFreq | avg of frequency body accelerator jerk magnitude mean frequency | numeric
+77 | avg.fBodyBodyGyroMag.mean | avg of frequency body gyroscope magnitude mean | numeric
+78 | avg.fBodyBodyGyroMag.std | avg of frequency body gyroscope magnitude standard deviation | numeric
+79 | avg.fBodyBodyGyroMag.meanFreq | avg of frequency body gyroscope magnitude mean frequency | numeric
+80 | avg.fBodyBodyGyroJerkMag.mean | avg of frequency body gyroscope jerk magnitude mean | numeric
+81 | avg.fBodyBodyGyroJerkMag.std | avg of frequency body gyroscope jerk magnitude standard deviation | numeric
+82 | avg.fBodyBodyGyroJerkMag.meanFreq | avg of frequency body gyroscope jerk magnitude mean frequency | numeric
+83 | avg.angle.tBodyAccMean.gravity | avg of angle signals for time body accelerator mean gravity | numeric 
+84 | avg.angle.tBodyAccJerkMean.gravityMean | avg of angle signals for time body accelerator jerk mean gravity mean | numeric 
+85 | avg.angle.tBodyGyroMean.gravityMean | avg of angle signals for time body gyroscope mean gravity mean | numeric 
+86 | avg.angle.tBodyGyroJerkMean.gravityMean | avg of angle signals for time body gyroscope jerk mean gravity mean | numeric 
+87 | avg.angle.X.gravityMean | avg of angle signals for X axis gravity mean | numeric 
+88 | avg.angle.Y.gravityMean | avg of angle signals for Y axis gravity mean | numeric 
+89 | avg.angle.Z.gravityMean | avg of angle signals for Z axis gravity mean | numeric 
 
 
 Instruction List
@@ -164,7 +186,7 @@ The file activity_labels.txt associates an activity number with the name of the 
 
 ### Assembling the Raw Data Into One Data Set for Analysis
 
-The run_analysis function first step is to read the data files common to both the test and train data files.
+The run_analysis functions' first step is to read the data files common to both the test and train data files.
 
 
 1)  features.txt is read.  The variables names in this file contain names illegal to r so the names are converted to legal r variable names using the names function.
@@ -190,7 +212,7 @@ The comprehensive data set is created.
 
 Now that the data has been assembled, the analysis steps can begin.  The function   extracts only the measurements on the mean and standard deviation for each data observation and computes an average of each variable for each activity and each subject.
 
-7)  Extract the data from the comprehensive data set when the variable name contains the word "mean" or "std".  Use grep() to find the target variable names and create a vector containing their position in the data set.  Subset the comprehesive data set using the vector.
+7)  Extract the data from the comprehensive data set when the variable name contains the word "mean", "Mean", or "std".  Use grep() to find the target variable names and create a vector containing their position in the data set.  Subset the comprehesive data set using the vector.
 
 8)  Compute the average for each mean and std deviation variable by activity by subject using aggregate() with the mean function and create a data set containing the aggregated data.
 
@@ -198,6 +220,6 @@ Now that the data has been assembled, the analysis steps can begin.  The functio
 
 ### Output a Data File
 
-The final step produces a data file __*avg.all.vars.by.subject.and.activity.txt*__  which is described in the Code Book section of this document.
+The final step produces a data file __*avg.all.vars.by.subject.and.activity.txt*__  , the contents of which are described in the Code Book section of this document.
 
 10)  Write the aggregated data set to a file.
